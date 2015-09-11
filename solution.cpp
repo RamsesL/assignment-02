@@ -1,6 +1,6 @@
 /* ----------------------------------------------------------------------------
- * Copyright &copy; 2015 Ben Blazak <bblazak@fullerton.edu>
- *                  2015 TODO(your name) <TODO(your email)>
+ * Copyright &copy; 2015 Ramses Ledon <ramsesledon@csu.fullerton.edu>
+ *                  2015 Ramses Ledon <ramsesledon@csu.fullerton.edu>
  * Released under the [MIT License] (http://opensource.org/licenses/MIT)
  * ------------------------------------------------------------------------- */
 
@@ -11,14 +11,12 @@
 
 
 #include <iostream>
+#include <string>
+#include <fstream>
 using std::cin;
 using std::cout;
 using std::endl;
-
-#include <string>
 using std::string;
-
-#include <fstream>
 using std::ifstream;
 using std::ofstream;
 
@@ -36,7 +34,7 @@ using std::ofstream;
  *     - Note: It would be better style in C++ to throw an exception, but we
  *       haven't learned about those yet.
  */
-int find_max(const string& infilename);
+int FindMax(const string& infilename);
 
 /**
  * Mark all prime indices in `primes` as `true` and all others as `false` using
@@ -59,7 +57,7 @@ int find_max(const string& infilename);
  *   the array and modify it, but the syntax is relatively uncommon, and might
  *   be confusing.
  */
-void sieve(const int size, bool primes[]);
+void Sieve(const int size);
 
 /**
  * Read numbers from `infilename`, and if they are prime, output them to
@@ -75,10 +73,7 @@ void sieve(const int size, bool primes[]);
  * Returns:
  * - 0 on success, or -1 on error.
  */
-int write_primes( const int size,
-                  bool primes[],
-                  const string& infilename,
-                  const string& outfilename );
+int write_primes( const int size, const string& infilename, const string& outfilename );
 
 /**
  * Read numbers from `infilename`, and if they are composite, output them to
@@ -94,17 +89,14 @@ int write_primes( const int size,
  * Returns:
  * - 0 on success, or -1 on error.
  */
-int write_composites( const int size,
-                      bool primes[],
-                      const string& infilename,
-                      const string& outfilename );
+int write_composites( const int size, const string& infilename, const string& outfilename );
 
 // ----------------------------------------------------------------------------
 
 int main() {
-    int max = find_max("input.txt");
-    if (max == -1) {
-        cout << "ERROR in `find_max()`" << endl;
+    int Maximum= FindMax("input.txt");
+    if (Maximum == -1) {
+        cout << "ERROR in `FindMax()`" << endl;
         return 1;  // error
     }
 
